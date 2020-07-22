@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'service/index.html', {})
+
+def detailview(request):
+    return render(request, 'service/adoption-single.html', {})

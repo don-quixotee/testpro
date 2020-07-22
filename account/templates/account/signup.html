@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block extraCss %}
+<style>
+    .main-div{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+
+        
+    }
+    .signup-form{
+    background-color: whitesmoke;
+    padding: 5%;
+        
+    }
+
+
+
+ .signup input[type=text], input[type=Number], input[type=email], input[type=password]{
+    width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+ }
+
+ @media screen and(max-width: 600px) {
+    .signup input[type=text], input[type=Number], input[type=email], input[type=password]{
+        width:10px;
+        padding: 6px;
+
+    }
+     
+ }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<hr>
+
+
+<div class="main-div">
+    <div class="signup-form ">
+
+
+        <form class="signup " method="POST" >
+    
+            {{form.username.label}}<br>
+            {{form.username}}<br>
+            {{form.email.label}}<br>
+            {{form.email}}<br>
+            {{form.password1.label}}<br>
+            {{form.password1}}<br>
+            {{form.password2.label}}<br>
+            {{form.password2}}<br>
+            Signup as:<br>
+            {{form.groups}}
+    
+            <button class="btn btn-outline-dark" type="submit">SignUp</button>
+            
+            {% csrf_token %}
+            
+    
+        </form>
+    
+    </div>
+    <div>
+        <h5> Already a member <a href=""><button class=" btn btn-outline-dark">login</button></a> here! </h5>
+    </div>
+</div>
+
+
+{% endblock %}
